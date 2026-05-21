@@ -68,7 +68,50 @@ void consultarSaldo(float saldo) {
     pausar();
 }
 
+float realizarDeposito(float saldo, char tipos[][TAM_TIPO], float valores[], int *totalOperacoes) {
+    float valor;
 
+    printf("\nDigite o valor do deposito: R$ ");
+    scanf("%f", &valor);
+    limparBuffer();
+
+    if (valor > 0.0f) {
+        saldo += valor;
+        registrarOperacao(tipos, valores, totalOperacoes, "Deposito", valor);
+        printf("\nDeposito realizado com sucesso!\n");
+        printf("Novo saldo: R$ %.2f\n", saldo);
+    } else {
+        printf("\nValor invalido! O deposito deve ser maior que zero.\n");
+    }
+
+    pausar();
+    return saldo;
+}
+
+float realizarSaque(float saldo, char tipos[][TAM_TIPO], float valores[], int *totalOperacoes) {
+    float valor;
+    float limiteSaque = 1000.00f;
+
+    printf("\nDigite o valor do saque: R$ ");
+    scanf("%f", &valor);
+    limparBuffer();
+
+    if (valor <= 0.0f) {
+        printf("\nValor invalido! O saque deve ser maior que zero.\n");
+    } else if (valor > limiteSaque) {
+        printf("\nSaque negado! Limite por saque: R$ %.2f\n", limiteSaque);
+    } else if (valor > saldo) {
+        printf("\nSaque negado! Saldo insuficiente.\n");
+    } else {
+        saldo -= valor;
+        registrarOperacao(tipos, valores, totalOperacoes, "Saque", valor);
+        printf("\nSaque realizado com sucesso!\n");
+        printf("Novo saldo: R$ %.2f\n", saldo);
+    }
+
+pausar();
+return saldo; 
+}    
 
 void pausar(void) {
     printf("\nPressione Enter para continuar...");
@@ -81,6 +124,6 @@ void pausar(void) {
 void limparBuffer(void) {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {
-        /* descarta o caractere */
     }
 }
+
