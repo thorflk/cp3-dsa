@@ -1,7 +1,7 @@
 # Sistema ATM — Caixa Eletrônico em C
 
 Projeto desenvolvido para a disciplina **Data Structures and Algorithms** da FIAP.  
-Implementação de um caixa eletrônico em linguagem C, aplicando os conceitos das semanas 04 e 05.
+Implementação de um caixa eletrônico em linguagem C
 
 ---
 
