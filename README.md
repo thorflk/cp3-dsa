@@ -16,7 +16,7 @@ Implementação de um caixa eletrônico em linguagem C, aplicando os conceitos d
 
 ---
 
-## 🗂️ Estrutura dos Commits
+## Estrutura dos Commits
 
 ### Commit 1 — Gabriel
 **`includes, constantes, prototipos e main`**
@@ -59,7 +59,7 @@ Funções de histórico e exibição:
 
 ---
 
-## ⚙️ Como compilar e executar
+## Como compilar e executar
 
 ```bash
 # Compilar
