@@ -48,3 +48,39 @@ int main() {
     return 0;
 }
  
+void exibirMenu(void) {
+    printf("\n==============================\n");
+    printf("       CAIXA ELETRONICO       \n");
+    printf("==============================\n");
+    printf("1 - Consultar saldo\n");
+    printf("2 - Realizar saque\n");
+    printf("3 - Realizar deposito\n");
+    printf("4 - Consultar extrato\n");
+    printf("0 - Sair\n");
+    printf("==============================\n");
+    printf("Escolha uma opcao: ");
+}
+
+void consultarSaldo(float saldo) {
+    printf("\n--------- SALDO ATUAL ---------\n");
+    printf("Saldo disponivel: R$ %.2f\n", saldo);
+    printf("-------------------------------\n");
+    pausar();
+}
+
+
+
+void pausar(void) {
+    printf("\nPressione Enter para continuar...");
+    getchar();
+}
+
+
+
+
+void limparBuffer(void) {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+        /* descarta o caractere */
+    }
+}
