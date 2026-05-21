@@ -51,7 +51,7 @@ Funções de operações financeiras:
 ---
 
 ### Commit 4 — Fernando
-**`feat: registrarOperacao e exibirExtrato`**
+**`registrarOperacao e exibirExtrato`**
 
 Funções de histórico e exibição:
 - `registrarOperacao()` — insere a operação no vetor; quando cheio, usa laço `for` para deslocar os elementos com `strcpy` e descarta o mais antigo (histórico circular de até 3 operações)
