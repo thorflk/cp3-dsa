@@ -113,17 +113,51 @@ pausar();
 return saldo; 
 }    
 
+void registrarOperacao(char tipos[][TAM_TIPO], float valores[], int *totalOperacoes, char tipo[], float valor) {
+    int i;
+
+    if (*totalOperacoes < MAX_OPERACOES) {
+        strcpy(tipos[*totalOperacoes], tipo);
+        valores[*totalOperacoes] = valor;
+        (*totalOperacoes)++;
+    } else {
+        for (i = 0; i < MAX_OPERACOES - 1; i++) {
+            strcpy(tipos[i], tipos[i + 1]); 
+            valores[i] = valores[i + 1];
+        }
+        strcpy(tipos[MAX_OPERACOES - 1], tipo);
+        valores[MAX_OPERACOES - 1] = valor;
+    }
+}
+
+void exibirExtrato(char tipos[][TAM_TIPO], float valores[], int totalOperacoes, float saldo) {
+    int i;
+
+    printf("\n----------- EXTRATO -----------\n");
+
+    if (totalOperacoes == 0) {
+        printf("Nenhuma operacao realizada.\n");
+    } else {
+        /* Semana 05: for de 0 ate totalOperacoes-1, usando indice como posicao no vetor */
+        for (i = 0; i < totalOperacoes; i++) {
+            printf("%d - %s: R$ %.2f\n", i + 1, tipos[i], valores[i]);
+        }
+    }
+
+    printf("-------------------------------\n");
+    printf("Saldo atual: R$ %.2f\n", saldo);
+    printf("-------------------------------\n");
+
+    pausar();
+}
+
 void pausar(void) {
     printf("\nPressione Enter para continuar...");
     getchar();
 }
-
-
-
 
 void limparBuffer(void) {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {
     }
 }
-
